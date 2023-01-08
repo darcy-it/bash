@@ -44,11 +44,14 @@ ls -l ~/.bk/bashrc
 # setting ~/.bashrc
 #
 # exit 0
-cp -p ./bashrc/bashrc-non-host ~/.bashrc
+# cp -p ./bashrc/bashrc-non-host ~/.bashrc
 # delete line 60
-# cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 60 > $OUTPUTFILE)
-# TMP=" \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ "
-# sed -i -e "60i $TMP" $OUTPUTFILE
+OUTPUTFILE='~/.bashrc'
+cat $OUTPUTFILE
+exit
+cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 60 > $OUTPUTFILE)
+TMP=" \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ "
+sed -i -e "60i $TMP" $OUTPUTFILE
 
 #----------------------------------------
 #　Confirmation after setup
