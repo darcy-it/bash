@@ -48,10 +48,8 @@ ls -l ~/.bk/bashrc
 #
 # setting ~/.bashrc
 #
-# exit 0
-# cp -p ./bashrc/bashrc-non-host ~/.bashrc
-# delete line 60
 OUTPUTFILE="$HOME/.bashrc"
+# delete line 60
 #cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 60 > $OUTPUTFILE)
 sed -i -e '60d' $OUTPUTFILE
 # TMP=" \ \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ \'"
