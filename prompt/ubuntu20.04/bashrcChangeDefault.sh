@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#echo "$user@hostname:~$"
+#echo "$user@hostname:dirfullpath$"
 
 #cp -p bashrc-non-host ~/.bashrc
 
