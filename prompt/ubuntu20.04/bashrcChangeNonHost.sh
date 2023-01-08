@@ -36,7 +36,7 @@ cp -pf ~/.bashrc ~/.bk/bashrc/bashrc.latest
 #
 # restore bashrc
 #
-cp -p ~/.bk/bashrc/bashrc.2023.0108 ~/.bashrc
+cp -p ~/.bk/bashrc/bashrc.org ~/.bashrc
 
 #
 # Confirmation of settings
