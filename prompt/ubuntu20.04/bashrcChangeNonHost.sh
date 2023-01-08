@@ -64,9 +64,10 @@ diff ~/.bk/bashrc/bashrc.latest ~/.bashrc
 #----------------------------------------
 # Configuring Reflection
 #----------------------------------------
-exec bash
+# exec bash
 # sh ~/.bashrc # NG
 # . ~/.bashrc # NG
 # source ~/.bashrc # NG
+echo `sh $HOME/.bashrc`
 
 exit 0
