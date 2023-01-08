@@ -5,7 +5,11 @@
 # https://codechacha.com/ja/shell-script-loop/
 #
 
-OUTPUTFILE='outputfile.txt'
+# os version
+
+# bash verson
+
+OUTPUTFILE='ConfirmationFile-Bashrc.txt'
 # echo "" > $OUTPUTFILE
 # echo " PS1=[" >> $OUTPUTFILE
 rm -f $OUTPUTFILE
@@ -30,7 +34,7 @@ done
 cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 2 -e 5 > $OUTPUTFILE)
 
 #         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-TMP=" \ \ PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\033[01\;32m\\\]\\\u@\\\h\\\[033[00m"
+TMP=" \ \ PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ "
 sed -i -e "2i $TMP" $OUTPUTFILE
 # sed -i -e "3i h" $OUTPUTFILE
 # sed -i -e "3a haa" $OUTPUTFILE
