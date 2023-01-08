@@ -31,8 +31,8 @@ done
 # Delete lines 2 and 5
 #---------------------------
 # cat $OUTPUTFILE | tee tmp.txt | grep -v -e 2 -e 5 > $OUTPUTFILE 
-cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 2 -e 5 > $OUTPUTFILE)
-
+# cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 2 -e 5 > $OUTPUTFILE)
+cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 2 > $OUTPUTFILE)
 #         PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 TMP=" \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ "
 sed -i -e "2i $TMP" $OUTPUTFILE

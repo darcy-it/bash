@@ -30,8 +30,13 @@ esac
 mkdir -p ~/.bk/bashrc
 # cp -p ~/.bashrc ~/.bk/bashrc/bashrc.`date +%Y.%m%d`
 # cp -p ~/.bashrc ~/.bk/bashrc/bashrc.`date +%Y.%m%d.%H%M%S`
-cp -p ~/.bashrc ~/.bk/bashrc/bashrc.`date +%Y.%m%d.%H%M`
-cp -p ~/.bashrc ~/.bk/bashrc/bashrc.latest
+# cp -p ~/.bashrc ~/.bk/bashrc/bashrc.`date +%Y.%m%d.%H%M`
+cp -pf ~/.bashrc ~/.bk/bashrc/bashrc.latest
+
+#
+# restore bashrc
+#
+cp -p ~/.bk/bashrc/bashrc.2023.0108 ~/.bashrc
 
 #
 # Confirmation of settings
@@ -47,14 +52,16 @@ ls -l ~/.bk/bashrc
 # cp -p ./bashrc/bashrc-non-host ~/.bashrc
 # delete line 60
 OUTPUTFILE="$HOME/.bashrc"
-cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 60 > $OUTPUTFILE)
-TMP=" \ \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ \'"
+#cat $OUTPUTFILE | (rm $OUTPUTFILE; grep -v -e 60 > $OUTPUTFILE)
+sed -i -e '60d' $OUTPUTFILE
+# TMP=" \ \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@\\\h\\\[\\\033[00m\\\]:\\\[\\\033[01\;34m\\\]\\\w\\\[\\\033[00m\\\]\\\\$ \'"
+TMP=" \ \ \ \ \PS1=\'\$\{debian_chroot:+\(\$debian_chroot\)}\\\[\\\033[01\;32m\\\]\\\u@:\\\[\\\033[01\;34m\\\]\\\W\\\[\\\033[00m\\\]\\\\$ \'"
 sed -i -e "60i $TMP" $OUTPUTFILE
 
 #----------------------------------------
 #　Confirmation after setup
 #----------------------------------------
-diff ~/.bashrc ~/.bk/bashrc/bashrc.latest
+diff ~/.bk/bashrc/bashrc.latest ~/.bashrc
 
 #----------------------------------------
 # Configuring Reflection
